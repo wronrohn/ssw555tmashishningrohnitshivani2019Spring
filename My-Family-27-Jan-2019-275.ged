@@ -1,0 +1,175 @@
+0 NOTE https://github.com/spatole12/ssw555tmashishningrohnitshivani2019Spring
+0 NOTE Shivani Patole
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE My Family
+1 DATE 27 JAN 2019
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME shivani patole
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Sherley /Johnson/
+2 GIVN Sherley
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 4 MAY 1995
+1 FAMC @F1@
+0 @I2@ INDI
+1 NAME Smith /Johnson/
+2 GIVN Smith
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 10 MAY 1976
+1 FAMS @F1@
+1 FAMC @F2@
+0 @I3@ INDI
+1 NAME Christine /Clie/
+2 GIVN Christine
+2 SURN Clie
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 4 MAY 1979
+1 FAMS @F1@
+1 FAMC @F3@
+0 @I4@ INDI
+1 NAME Mathew /Clie/
+2 GIVN Mathew
+2 SURN Clie
+2 _MARNM Clie
+1 SEX M
+1 BIRT
+2 DATE 8 APR 1956
+1 FAMS @F3@
+0 @I5@ INDI
+1 NAME Mary /Nichole/
+2 GIVN Mary
+2 SURN Nichole
+2 _MARNM Clie
+1 SEX F
+1 BIRT
+2 DATE 13 MAR 1958
+1 FAMS @F3@
+0 @I6@ INDI
+1 NAME David /Johnson/
+2 GIVN David
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 7 APR 1950
+1 DEAT Y
+2 DATE 20 DEC 1990
+1 FAMS @F2@
+0 @I7@ INDI
+1 NAME Jenifer /Bridge/
+2 GIVN Jenifer
+2 SURN Bridge
+2 _MARNM Bing
+1 SEX F
+1 BIRT
+2 DATE 10 MAY 1954
+1 FAMS @F2@
+1 FAMS @F4@
+0 @I8@ INDI
+1 NAME Benjamin /Bing/
+2 GIVN Benjamin
+2 SURN Bing
+2 _MARNM Bing
+1 SEX M
+1 BIRT
+2 DATE 12 OCT 1949
+1 FAMS @F4@
+0 @I9@ INDI
+1 NAME Emy /Bing/
+2 GIVN Emy
+2 SURN Bing
+2 _MARNM Bing
+1 SEX F
+1 BIRT
+2 DATE 11 MAY 1998
+1 FAMC @F4@
+0 @I10@ INDI
+1 NAME Edward /Bing/
+2 GIVN Edward
+2 SURN Bing
+2 _MARNM Bing
+1 SEX M
+1 BIRT
+2 DATE 2 JUL 2000
+1 FAMS @F5@
+1 FAMC @F4@
+0 @I11@ INDI
+1 NAME Mine /Ruthers/
+2 GIVN Mine
+2 SURN Ruthers
+2 _MARNM Bing
+1 SEX F
+1 BIRT
+2 DATE 9 APR 2002
+1 FAMS @F5@
+0 @I12@ INDI
+1 NAME Jerry /Bing/
+2 GIVN Jerry
+2 SURN Bing
+2 _MARNM Bing
+1 SEX M
+1 BIRT
+2 DATE 13 APR 2020
+1 FAMC @F5@
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 CHIL @I1@
+1 MARR
+2 DATE 2 MAR 1995
+2 PLAC Boston
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I6@
+1 WIFE @I7@
+1 CHIL @I2@
+1 MARR
+2 DATE 28 JUN 1974
+2 PLAC Boston
+1 EVEN
+2 TYPE Ending
+1 _CURRENT N
+0 @F4@ FAM
+1 HUSB @I8@
+1 WIFE @I7@
+1 CHIL @I9@
+1 CHIL @I10@
+1 MARR
+2 DATE 9 MAR 1996
+2 PLAC Boston
+1 _CURRENT Y
+0 @F3@ FAM
+1 HUSB @I4@
+1 WIFE @I5@
+1 CHIL @I3@
+1 MARR
+2 DATE 7 MAR 1976
+2 PLAC Boston
+1 _CURRENT Y
+0 @F5@ FAM
+1 HUSB @I10@
+1 WIFE @I11@
+1 CHIL @I12@
+1 MARR
+2 DATE 11 APR 2019
+2 PLAC Boston
+1 DIV
+2 DATE 18 JUN 2020
+1 _CURRENT Y
+0 TRLR
