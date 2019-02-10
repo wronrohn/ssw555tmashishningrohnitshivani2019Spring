@@ -1,11 +1,18 @@
 import os,sys
 import datetime
+from prettytable import PrettyTable
 filename="GEDCOM_Ashish.ged"
 ged=open(filename,'r')
 a=ged.read()
 b=a.split("\n")
 #print(b)
 c=[]
+
+indi = PrettyTable()
+indi.field_names = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
+fam = PrettyTable()
+fam.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
+
 for i in range(0,len(b)):
     if b[i]=="":
         c.append(["","",""])
@@ -183,9 +190,59 @@ while i<len(finalize):
             family[finalize[i][2]]["DIV_DATE"]=con_date.strftime('%Y-%m-%d')
         i=j
     else:
-        i=i+1    
+        i=i+1
 
-print(ind)
-print("\n")
-print(family)
+
+for key, values in ind.items():
+    arr = list()
+    
+    arr.append(key)
+    if values.__contains__("NAME"):
+        arr.append (ind[key]["NAME"])
+    if values.__contains__("SEX"):
+        arr.append (ind[key]["SEX"])
+    if values.__contains__("BIRT_DATE"):
+        arr.append (ind[key]["BIRT_DATE"])
+    if values.__contains__("AGE"):
+        arr.append (ind[key]["AGE"])
+    if values.__contains__("ALIVE"):
+        arr.append (ind[key]["ALIVE"])
+    if values.__contains__("DEAT_DATE"):
+        arr.append (ind[key]["DEAT_DATE"])
+    
+    if values.__contains__("FAMC"):
+        arr.append (ind[key]["FAMC"])
+    if values.__contains__("FAMS"):
+        arr.append (ind[key]["FAMS"])
+    indi.add_row(arr)
+
+for key, values  in family.items():
+    arr = list()
+    husID = ""
+    wifeID = ""
+    arr.append(key)
+    if values.__contains__("MARR_DATE"):
+        arr.append (family[key]["MARR_DATE"])
+    if values.__contains__("DIV_DATE"):
+        arr.append (family[key]["DIV_DATE"])
+    if values.__contains__("HUSB"):
+        arr.append (family[key]["HUSB"])
+        husID = family[key]["HUSB"]
+    arr.append(ind[husID]["NAME"])
+    if values.__contains__("WIFE"):
+        arr.append (family[key]["WIFE"])
+        wifeID = family[key]["WIFE"]
+    arr.append(ind[wifeID]["NAME"])
+    if values.__contains__("CHIL"):
+        arr.append (family[key]["CHIL"])
+    fam.add_row(arr)
+#print(arr)
+
+
+print("Individuals")
+print(indi)
+print("Family")
+print(fam)
+
+
 
