@@ -1,6 +1,7 @@
 import os,sys
 import datetime
 from prettytable import PrettyTable
+from us01_ny import us01_date_b4_now
 from us07_rs import us07_rs
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
@@ -307,6 +308,8 @@ class Gedcom():
 
     # Call your user story method here if it is related to search and validate
     def validate_all(self):
+        # User Story 01
+        us01_date_b4_now(self.ind, self.family)
         # User Story 7
         try:
             val_us_07 = us07_rs.siblingCount(self.family)
