@@ -205,7 +205,7 @@ while i<len(finalize):
     else:
         i=i+1
 
-print(ind)
+
 
 for key, values in ind.items():
     arr = list()
@@ -298,7 +298,8 @@ print(fam)
 
 try:
     val_us_07 = UserStoryRs.siblingCount(family)
-    print(val_us_07)
+    if val_us_07 is True:
+        print("Userstory 7 successful")
 
 except ValueError as err:
     print(err)

@@ -1,7 +1,7 @@
 class UserStoryRs:
     def siblingCount(family):
         if(type(family) is not (dict)):
-            raise ValueError("Argument isn't an dict")
+            raise TypeError("Argument isn't an dict")
         validity = True
         for x, values in family.items():
             
