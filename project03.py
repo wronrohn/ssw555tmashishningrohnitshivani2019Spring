@@ -1,11 +1,14 @@
 import os,sys
 import datetime
 from prettytable import PrettyTable
+from us_rs import UserStoryRs
 filename="GEDCOM_Ashish.ged"
 ged=open(filename,'r')
 a=ged.read()
 b=a.split("\n")
 #print(b)
+lineNumber = 0
+error = []
 c=[]
 
 indi = PrettyTable()
@@ -38,6 +41,7 @@ check={'0':["HEAD","NOTE","TRLR","INDI","FAM"],
 '2':["DATE"]}
 
 for i in range(0,len(c)):
+    lineNumber += 1
     if(c[i][0]=="" and c[i][1]=="" and c[i][2]==""):
         temporary="temporary"#used as a place holder
     else:
@@ -56,8 +60,11 @@ for i in range(0,len(c)):
                     #print("invalid")
                     if c[i][2]=="":
                         print("<--"+c[i][0]+"|"+c[i][1]+"|N"+c[i][2]+"\n")
+                        error.append(lineNumber)
+                        
                     else:
                         print("<--"+c[i][0]+"|"+c[i][1]+"|N|"+c[i][2]+"\n")
+                        error.append(lineNumber)
             elif (c[i][2] in check[c[i][0]]) and (c[i][2]=="INDI" or c[i][2]=="FAM"):
                 #print("valid\n")
                 print("<--"+c[i][0]+"|"+c[i][2]+"|Y|"+c[i][1]+"\n")
@@ -67,8 +74,10 @@ for i in range(0,len(c)):
                 #print("invalid\n")
                 if c[i][2]=="":
                     print("<--"+c[i][0]+"|"+c[i][1]+"|N"+c[i][2]+"\n")
+                    error.append(lineNumber)
                 else:
                     print("<--"+c[i][0]+"|"+c[i][1]+"|N|"+c[i][2]+"\n")
+                    error.append(lineNumber)
         elif (c[i][0]=='1') and (c[i][1] in check[c[i][0]]):
             if (c[i][1]=="BIRT" or c[i][1]=="DEAT" or c[i][1]=="MARR" or c[i][1]=="DIV" ) and (c[i][2]==""):
                 #print("valid\n")
@@ -84,8 +93,10 @@ for i in range(0,len(c)):
                         #print("invalid\n")
                         if c[i][2]=="":
                             print("<--"+c[i][0]+"|"+c[i][1]+"|N"+c[i][2]+"\n")
+                            error.append(lineNumber)
                         else:
                             print("<--"+c[i][0]+"|"+c[i][1]+"|N|"+c[i][2]+"\n")
+                            error.append(lineNumber)
                 else:
                     #print("valid\n")
                     print("<--"+c[i][0]+"|"+c[i][1]+"|Y|"+c[i][2]+"\n")
@@ -98,8 +109,10 @@ for i in range(0,len(c)):
             #print("invalid\n")
             if c[i][2]=="":
                 print("<--"+c[i][0]+"|"+c[i][1]+"|N"+c[i][2]+"\n")
+                error.append(lineNumber)
             else:
                 print("<--"+c[i][0]+"|"+c[i][1]+"|N|"+c[i][2]+"\n")
+                error.append(lineNumber)
 
 #print(finalize)
 ind={}
@@ -192,6 +205,7 @@ while i<len(finalize):
     else:
         i=i+1
 
+print(ind)
 
 for key, values in ind.items():
     arr = list()
@@ -199,22 +213,40 @@ for key, values in ind.items():
     arr.append(key)
     if values.__contains__("NAME"):
         arr.append (ind[key]["NAME"])
+    else:
+        arr.append("NA")
     if values.__contains__("SEX"):
         arr.append (ind[key]["SEX"])
+    else:
+        arr.append("NA")
     if values.__contains__("BIRT_DATE"):
         arr.append (ind[key]["BIRT_DATE"])
+    else:
+        arr.append("NA")
     if values.__contains__("AGE"):
         arr.append (ind[key]["AGE"])
+    else:
+        arr.append("NA")
     if values.__contains__("ALIVE"):
         arr.append (ind[key]["ALIVE"])
+    else:
+        arr.append("NA")
     if values.__contains__("DEAT_DATE"):
         arr.append (ind[key]["DEAT_DATE"])
-    
+    else:
+        arr.append("NA")
     if values.__contains__("FAMC"):
         arr.append (ind[key]["FAMC"])
+    else:
+        arr.append("NA")
     if values.__contains__("FAMS"):
         arr.append (ind[key]["FAMS"])
+    else:
+        arr.append("NA")
+    
     indi.add_row(arr)
+    
+    
 
 for key, values  in family.items():
     arr = list()
@@ -223,26 +255,54 @@ for key, values  in family.items():
     arr.append(key)
     if values.__contains__("MARR_DATE"):
         arr.append (family[key]["MARR_DATE"])
+    else:
+        arr.append("NA")
     if values.__contains__("DIV_DATE"):
         arr.append (family[key]["DIV_DATE"])
+    else:
+        arr.append("NA")
     if values.__contains__("HUSB"):
         arr.append (family[key]["HUSB"])
         husID = family[key]["HUSB"]
-    arr.append(ind[husID]["NAME"])
+        arr.append(ind[husID]["NAME"])
+    else:
+        arr.append("NA")
+        arr.append("NA")
+    
     if values.__contains__("WIFE"):
         arr.append (family[key]["WIFE"])
         wifeID = family[key]["WIFE"]
-    arr.append(ind[wifeID]["NAME"])
+        arr.append(ind[wifeID]["NAME"])
+    else:
+        arr.append("NA")
+        arr.append("NA")
+    
     if values.__contains__("CHIL"):
         arr.append (family[key]["CHIL"])
+    else:
+        arr.append("NA")
     fam.add_row(arr)
 #print(arr)
+
+
 
 
 print("Individuals")
 print(indi)
 print("Family")
 print(fam)
+# print(error)
+
+
+# User Story 7
+
+try:
+    val_us_07 = UserStoryRs.siblingCount(family)
+    print(val_us_07)
+
+except ValueError as err:
+    print(err)
+
 
 
 
