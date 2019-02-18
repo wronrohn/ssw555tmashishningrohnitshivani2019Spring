@@ -2,7 +2,8 @@ import os,sys
 import datetime
 from prettytable import PrettyTable
 from us07_rs import us07_rs
-
+# !To developers: please call all your user story methods in either print_all() or 
+# validate_all() as the name implies
 FILENAME="GEDCOM_input.ged"
 
 class Gedcom():
@@ -300,9 +301,11 @@ class Gedcom():
         print(fam)
         # print(error)
 
+    # Call your user story method here if it is related to search and display
     def print_all(self):
         self.print_gedcom()
 
+    # Call your user story method here if it is related to search and validate
     def validate_all(self):
         # User Story 7
         try:
