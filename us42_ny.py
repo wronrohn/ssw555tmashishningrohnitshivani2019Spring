@@ -7,7 +7,7 @@ def us42_tsk01_is_legit_date(dateString):
     except ValueError:
         return False
 
-def us42_legit_day(ind, family):
+def us42_legit_date(ind, family):
     for key, values in ind.items():
         if (values.__contains__("BIRT_DATE") and ind[key]["BIRT_DATE"] == "Invalid"):
             print('Error US42: Birth date of', ind[key]["NAME"], '(', key ,') is illegitimate.')
