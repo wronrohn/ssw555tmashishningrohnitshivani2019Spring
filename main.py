@@ -1,8 +1,8 @@
 import os,sys
 import datetime
 from prettytable import PrettyTable
-from us_rs import UserStoryRs
-filename="GEDCOM_Ashish.ged"
+from us07_rs import us07_rs
+filename="GEDCOM_input.ged"
 ged=open(filename,'r')
 a=ged.read()
 b=a.split("\n")
@@ -297,7 +297,7 @@ print(fam)
 # User Story 7
 
 try:
-    val_us_07 = UserStoryRs.siblingCount(family)
+    val_us_07 = us07_rs.siblingCount(family)
     if val_us_07 is True:
         print("Userstory 7 successful")
 

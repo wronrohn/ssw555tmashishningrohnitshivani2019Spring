@@ -1,5 +1,5 @@
 import unittest
-from us_rs import UserStoryRs
+from us07_rs import us07_rs
 
 class TestSiblingCount(unittest.TestCase):
     
@@ -7,7 +7,7 @@ class TestSiblingCount(unittest.TestCase):
     # User Story 7
     def test_siblingCount(self):
         
-        usr = UserStoryRs()
+        usr = us07_rs()
         
         family_right_1 = {'@F1@': {'HUSB': '@I2@', 'WIFE': '@I3@', 'CHIL': ['@I1@', '@I4@'], 'MARR_DATE': '1994-06-12', 'DIV_DATE': 'NA'}, '@F2@': {'HUSB': '@I7@', 'WIFE': '@I8@', 'CHIL': ['@I2@'], 'MARR_DATE': '1970-02-03', 'DIV_DATE': 'NA'}, '@F3@': {'HUSB': '@I5@', 'WIFE': '@I6@', 'CHIL': ['@I3@'], 'MARR_DATE': '1992-03-10', 'DIV_DATE': 'NA'}, '@F4@': {'HUSB': '@I9@', 'WIFE': '@I11@', 'CHIL': ['@I14@'], 'MARR_DATE': '1998-03-10', 'DIV_DATE': 'NA'}, '@F5@': {'HUSB': '@I7@', 'WIFE': '@I10@', 'CHIL': ['@I9@'], 'MARR_DATE': '1974-02-05', 'DIV_DATE': 'NA'}, '@F6@': {'HUSB': '@I12@', 'WIFE': '@I13@', 'CHIL': ['@I11@'], 'MARR_DATE': '1977-12-06', 'DIV_DATE': 'NA'}}
         
@@ -27,12 +27,12 @@ class TestSiblingCount(unittest.TestCase):
         #Passing random string instead of a dictionary
         family_wrong_1 = "hello"
 
-        self.assertTrue(UserStoryRs.siblingCount(family_right_1))
-        self.assertTrue(UserStoryRs.siblingCount(family_right_2))
-        self.assertTrue(UserStoryRs.siblingCount(family_right_3))
-        self.assertTrue(UserStoryRs.siblingCount(family_right_4))
-        self.assertRaises(ValueError, UserStoryRs.siblingCount, family_wrong )
-        self.assertRaises(TypeError, UserStoryRs.siblingCount, family_wrong_1 )
+        self.assertTrue(us07_rs.siblingCount(family_right_1))
+        self.assertTrue(us07_rs.siblingCount(family_right_2))
+        self.assertTrue(us07_rs.siblingCount(family_right_3))
+        self.assertTrue(us07_rs.siblingCount(family_right_4))
+        self.assertRaises(ValueError, us07_rs.siblingCount, family_wrong )
+        self.assertRaises(TypeError, us07_rs.siblingCount, family_wrong_1 )
         
         print ("done")
 

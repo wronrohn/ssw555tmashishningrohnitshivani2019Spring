@@ -1,4 +1,4 @@
-class UserStoryRs:
+class us07_rs:
     def siblingCount(family):
         if(type(family) is not (dict)):
             raise TypeError("Argument isn't an dict")
