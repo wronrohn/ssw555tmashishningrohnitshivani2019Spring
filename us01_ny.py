@@ -26,12 +26,14 @@ def us01_date_b4_now(ind, family):
                 print('Error US01: Divorce date of ', ind[husID]["NAME"],'(', husID, ') and', ind[wifeID]["NAME"],'(', wifeID,') in Family (', key,') occurs after current date.')
 
 def us01_tsk01_is_b4_now(dateString):
-    if(dateString == "NA"):
-        return True
-    else:
+    try:
         nowDate = datetime.datetime.now()
         subjectDate = datetime.datetime.strptime(dateString, '%Y-%m-%d')
         if(subjectDate < nowDate):
             return True
         else:
             return False
+    except ValueError:
+        #if input date is NA or invalid, it is considered as true
+        return True
+
