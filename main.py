@@ -164,6 +164,7 @@ class Gedcom():
                         dea_date=datetime.datetime.strptime(self.ind[finalize[i][2]]["DEAT_DATE"],'%d %b %Y')
                         self.ind[finalize[i][2]]["DEAT_DATE"]=dea_date.strftime('%Y-%m-%d')
                     else:
+                        dea_date = "Invalid"
                         self.ind[finalize[i][2]]["DEAT_DATE"]= "Invalid"
                     self.ind[finalize[i][2]]["ALIVE"]="False"
 
@@ -175,7 +176,10 @@ class Gedcom():
                     if(isLegitDate == True):
                         con_date=datetime.datetime.strptime(self.ind[finalize[i][2]]["BIRT_DATE"],'%d %b %Y')
                         self.ind[finalize[i][2]]["BIRT_DATE"]=con_date.strftime('%Y-%m-%d')
-                        self.ind[finalize[i][2]]["AGE"]=int(((dea_date)-(con_date)).days/365)
+                        if (dea_date != "Invalid"):
+                            self.ind[finalize[i][2]]["AGE"]=int(((dea_date)-(con_date)).days/365)
+                        else:
+                            self.ind[finalize[i][2]]["AGE"]="Invalid"
                     else:
                         self.ind[finalize[i][2]]["BIRT_DATE"]="Invalid"
                         self.ind[finalize[i][2]]["AGE"]="Invalid"
