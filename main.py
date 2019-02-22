@@ -2,12 +2,12 @@ import os,sys
 import datetime
 from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
-from us07_rs import us07_rs
+from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="GEDCOM_input.ged"
-
+error = []
 class Gedcom():
     def __init__(self, filename):
         ged=open(filename,'r')
@@ -22,7 +22,7 @@ class Gedcom():
     def _preprocess_file(self, b):
         c=[]
         lineNumber = 0
-        error = []
+        
         finalize=[]
         check={'0':["HEAD","NOTE","TRLR","INDI","FAM"],
         '1':["NAME","SEX","BIRT","DEAT","FAMC","FAMS","MARR","HUSB","WIFE","CHIL","DIV",],
@@ -322,7 +322,9 @@ class Gedcom():
         print(indi)
         print("Family")
         print(fam)
-        # print(error)
+        if(error):
+            for err in error:
+                print("Error in line number " + str(err))
 
     # Call your user story method here if it is related to search and display
     def print_all(self):
@@ -334,13 +336,23 @@ class Gedcom():
         us01_date_b4_now(self.ind, self.family)
         # User Story 7
         try:
-            val_us_07 = us07_rs.siblingCount(self.family)
-            if val_us_07 is True:
+            val_us_15 = us_rs.siblingCount(self.family)
+            if val_us_15 is True:
                 print("Userstory 7 successful")
         except ValueError as err:
             print(err)
         # User Story 42
         us42_legit_date(self.ind, self.family)
+        # User Story 15
+        try:
+            test_val_15 = us_rs.siblingCount(self.family)
+            if(test_val_15):
+                print("Userstory 15 is Successful")
+        except ValueError as err:
+            print(err)
+        except TypeError as err:
+            print(err)
+
         
 
 def main():
