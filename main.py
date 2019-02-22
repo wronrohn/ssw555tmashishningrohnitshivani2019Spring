@@ -4,6 +4,7 @@ from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
 from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
+from us02_sp import us02_birth_before_marriage, us02_birth_is_before_marriage
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="GEDCOM_input.ged"
@@ -352,7 +353,8 @@ class Gedcom():
             print(err)
         except TypeError as err:
             print(err)
-
+        # User Story 02
+        us02_birth_before_marriage(self.ind, self.family)
         
 
 def main():
