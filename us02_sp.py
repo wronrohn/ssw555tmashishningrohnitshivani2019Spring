@@ -1,5 +1,6 @@
 import datetime
 
+
 def us02_birth_before_marriage(ind, family):
     for key, values in ind.items():
         if (values.__contains__("BIRT_DATE") and ind[key]["BIRT_DATE"] != "NA"):
