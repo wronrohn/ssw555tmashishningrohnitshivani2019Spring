@@ -2,12 +2,17 @@ import os,sys
 import datetime
 from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
-from us07_rs import us07_rs
+from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
+<<<<<<< HEAD
 from us02_sp import us02_birth_before_marriage
 from us35_sp import us35_ppl_born_last_30days
 # import US04
 # import US07
+=======
+import us04_an
+import us07_an
+>>>>>>> b7a43d4f463d0c2ddb5ea80bc95fd9dcf0a4fae5
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="GEDCOM_Ashish.ged"
@@ -341,6 +346,7 @@ class Gedcom():
     def validate_all(self):
         # User Story 01
         #us01_date_b4_now(self.ind, self.family)
+<<<<<<< HEAD
 
         # User Story 02
         us02_birth_before_marriage(self.ind, self.family)
@@ -356,6 +362,12 @@ class Gedcom():
                 print("Userstory 7 successful")
         except ValueError as err:
             print(err)
+=======
+        # User Story 4 and 7
+        us04_an.parse_data_04(self.family)
+        us07_an.parse_data_07(self.ind)
+        
+>>>>>>> b7a43d4f463d0c2ddb5ea80bc95fd9dcf0a4fae5
         # User Story 42
         us42_legit_date(self.ind, self.family)
         # User Story 15
@@ -367,7 +379,12 @@ class Gedcom():
             print(err)
         except TypeError as err:
             print(err)
+<<<<<<< HEAD
         
+=======
+        # User Story 02
+        #us02_birth_before_marriage(self.ind, self.family)
+>>>>>>> b7a43d4f463d0c2ddb5ea80bc95fd9dcf0a4fae5
         
 
 def main():

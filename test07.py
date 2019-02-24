@@ -1,43 +1,32 @@
 import unittest
-from us07_rs import us07_rs
+from us07_an import us_07
 
-class TestSiblingCount(unittest.TestCase):
-    
+class testcase(unittest.TestCase):
 
-    # User Story 7
-    def test_siblingCount(self):
-        
-        usr = us07_rs()
-        
-        family_right_1 = {'@F1@': {'HUSB': '@I2@', 'WIFE': '@I3@', 'CHIL': ['@I1@', '@I4@'], 'MARR_DATE': '1994-06-12', 'DIV_DATE': 'NA'}, '@F2@': {'HUSB': '@I7@', 'WIFE': '@I8@', 'CHIL': ['@I2@'], 'MARR_DATE': '1970-02-03', 'DIV_DATE': 'NA'}, '@F3@': {'HUSB': '@I5@', 'WIFE': '@I6@', 'CHIL': ['@I3@'], 'MARR_DATE': '1992-03-10', 'DIV_DATE': 'NA'}, '@F4@': {'HUSB': '@I9@', 'WIFE': '@I11@', 'CHIL': ['@I14@'], 'MARR_DATE': '1998-03-10', 'DIV_DATE': 'NA'}, '@F5@': {'HUSB': '@I7@', 'WIFE': '@I10@', 'CHIL': ['@I9@'], 'MARR_DATE': '1974-02-05', 'DIV_DATE': 'NA'}, '@F6@': {'HUSB': '@I12@', 'WIFE': '@I13@', 'CHIL': ['@I11@'], 'MARR_DATE': '1977-12-06', 'DIV_DATE': 'NA'}}
-        
+    def test_mbd(self):
+        result=us_07(['1996-10-21',4],['2150-10-21',6],154,'I1')
+        self.assertEqual(result,"Error US07:Age of person is 150 years with I1 id")
 
-        #Object with empty "CHIL"
-        family_right_2 = {"@F1": {"CHIL": []}}
-        
-        #Object with no "CHIL" key
-        family_right_3 = {"@F1": {}}
-        
-        #Family of 15 children thus all children have 14 siblings. Thus it should work
-        family_right_4 = {'@F1@': {'CHIL': ["@I1@", "@I2@","@I3@","@I4@","@I5@","@I6@","@I7@","@I8@","@I9@","@I10@","@I11@","@I12@","@I13@","@I14@","@I15@" ]}}
+        result=us_07('NA',['1994-04-03',6],'NA','I1')
+        self.assertEqual(result,"Warning US07:Birth date is not given in I1 id")
 
-        #Family of 16 Children thus all children have 15 siblings, thus case fails
-        family_wrong = {'@F1@': {'CHIL': ["@I1@", "@I2@","@I3@","@I4@","@I5@","@I6@","@I7@","@I8@","@I9@","@I10@","@I11@","@I12@","@I13@","@I14@","@I15@","@I16@" ]}}
-        
-        #Passing random string instead of a dictionary
-        family_wrong_1 = "hello"
+        result=us_07(['1994-06-12',4],'NA','NA','I1')
+        self.assertEqual(result,0)
 
-        self.assertTrue(us07_rs.siblingCount(family_right_1))
-        self.assertTrue(us07_rs.siblingCount(family_right_2))
-        self.assertTrue(us07_rs.siblingCount(family_right_3))
-        self.assertTrue(us07_rs.siblingCount(family_right_4))
-        self.assertRaises(ValueError, us07_rs.siblingCount, family_wrong )
-        self.assertRaises(TypeError, us07_rs.siblingCount, family_wrong_1 )
-        
-        print ("done")
+        result=us_07('NA','NA','NA','I1')
+        self.assertEqual(result,"Warning US07:Birth date is not given in I1 id")
 
+        result=us_07('NA','Invalid','Invalid','I1')
+        self.assertEqual(result,"Warning US07:Birth date is not given and Death date is invalid in I1 id")
 
+        result=us_07('Invalid','Invalid','Invalid','I1')
+        self.assertEqual(result,"Warning US07:Birth date and Death date is invalid in I1 id")
 
-if __name__ == "__main__":
+        result=us_07(['1994-06-12',4],'Invalid','Invalid','I1')
+        self.assertEqual(result,"Warning US07:Death date is invalid in I1 id")
+
+        result=us_07(['1947-04-15',4],['1900-04-15',6],-47,'I1')
+        self.assertEqual(result,"Error US07 in line 4:Birth date is after death date with I1 id")
+
+if __name__=='__main__':
     unittest.main()
-
