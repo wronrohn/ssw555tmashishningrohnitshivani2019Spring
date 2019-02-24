@@ -4,8 +4,8 @@ from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
 from us07_rs import us07_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
-import US04
-import US07
+# import US04
+# import US07
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="GEDCOM_Ashish.ged"
@@ -340,14 +340,25 @@ class Gedcom():
         # User Story 7
         US04.parse_data_04(self.family)
         US07.parse_data_07(self.ind)
-        """try:
+        try:
             val_us_07 = us07_rs.siblingCount(self.family)
             if val_us_07 is True:
                 print("Userstory 7 successful")
         except ValueError as err:
             print(err)
         # User Story 42
-        us42_legit_date(self.ind, self.family)"""
+        us42_legit_date(self.ind, self.family)
+        # User Story 15
+        try:
+            test_val_15 = us_rs.siblingCount(self.family)
+            if(test_val_15):
+                print("Userstory 15 is Successful")
+        except ValueError as err:
+            print(err)
+        except TypeError as err:
+            print(err)
+        # User Story 02
+        us02_birth_before_marriage(self.ind, self.family)
         
 
 def main():
