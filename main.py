@@ -4,8 +4,8 @@ from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
 from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
-import US04
-import US07
+import us04_an
+import us07_an
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="GEDCOM_Ashish.ged"
@@ -338,8 +338,8 @@ class Gedcom():
         # User Story 01
         #us01_date_b4_now(self.ind, self.family)
         # User Story 7
-        US04.parse_data_04(self.family)
-        US07.parse_data_07(self.ind)
+        us04_an.parse_data_04(self.family)
+        us07_an.parse_data_07(self.ind)
         try:
             val_us_07 = us07_rs.siblingCount(self.family)
             if val_us_07 is True:
