@@ -340,12 +340,7 @@ class Gedcom():
         # User Story 7
         US04.parse_data_04(self.family)
         US07.parse_data_07(self.ind)
-        try:
-            val_us_07 = us07_rs.siblingCount(self.family)
-            if val_us_07 is True:
-                print("Userstory 7 successful")
-        except ValueError as err:
-            print(err)
+        
         # User Story 42
         us42_legit_date(self.ind, self.family)
         # User Story 15
