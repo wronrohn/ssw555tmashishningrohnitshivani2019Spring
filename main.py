@@ -2,10 +2,10 @@ import os,sys
 import datetime
 from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
-from us07_rs import us07_rs
+from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
-# import US04
-# import US07
+import US04
+import US07
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="GEDCOM_Ashish.ged"
