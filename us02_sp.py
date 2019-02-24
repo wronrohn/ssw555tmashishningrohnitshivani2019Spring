@@ -15,7 +15,8 @@ def us02_birth_before_marriage(ind, family):
                         # print("values:   ",values1)
                         if (key1 == family_id and values1.__contains__("MARR_DATE") and family[key1]["MARR_DATE"] != "NA"):
                             # print(family[key1]["MARR_DATE"])
-                            isvalid = us02_birth_is_before_marriage(ind[key]["BIRT_DATE"],family[key1]["MARR_DATE"])
+                            print("In us 02",ind[key]["BIRT_DATE"])
+                            isvalid = us02_birth_is_before_marriage(ind[key]["BIRT_DATE"][0],family[key1]["MARR_DATE"][0])
                             if (isvalid == False):
                                 print('Error US02: Birth date of', ind[key]["NAME"], '(', key ,') occurs after the marriage date.')
                             break
