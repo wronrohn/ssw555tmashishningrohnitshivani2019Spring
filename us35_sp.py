@@ -223,7 +223,6 @@ def us35_ppl_born_last_30days(ind, family):
     for key, values in ind.items():
         if (values.__contains__("BIRT_DATE") and ind[key]["BIRT_DATE"] != "NA"):
            status = us35_ppl_born_last_30days_check(ind[key]["BIRT_DATE"])
-           
            if status == True:
                print(ind[key])
 
