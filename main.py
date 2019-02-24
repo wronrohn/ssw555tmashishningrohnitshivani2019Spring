@@ -337,15 +337,10 @@ class Gedcom():
     def validate_all(self):
         # User Story 01
         #us01_date_b4_now(self.ind, self.family)
-        # User Story 7
+        # User Story 4 and 7
         us04_an.parse_data_04(self.family)
         us07_an.parse_data_07(self.ind)
-        try:
-            val_us_07 = us07_rs.siblingCount(self.family)
-            if val_us_07 is True:
-                print("Userstory 7 successful")
-        except ValueError as err:
-            print(err)
+        
         # User Story 42
         us42_legit_date(self.ind, self.family)
         # User Story 15
@@ -358,7 +353,7 @@ class Gedcom():
         except TypeError as err:
             print(err)
         # User Story 02
-        us02_birth_before_marriage(self.ind, self.family)
+        #us02_birth_before_marriage(self.ind, self.family)
         
 
 def main():

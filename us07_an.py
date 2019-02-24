@@ -3,7 +3,7 @@ def us_07(birth,death,Age,i):
         if Age>=150:
             return "Error US07:Age of person is 150 years with "+ i +" id"
         elif Age<0:
-            return "Error US07 in line "+ str(death[1]) + ":Birth date is after death date with "+ i +" id"
+            return "Error US07 in line "+ str(birth[1]) + ":Birth date is after death date with "+ i +" id"
         else:
             return 0
     else:

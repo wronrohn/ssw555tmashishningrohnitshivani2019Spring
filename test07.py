@@ -26,7 +26,7 @@ class testcase(unittest.TestCase):
         self.assertEqual(result,"Warning US07:Death date is invalid in I1 id")
 
         result=us_07(['1947-04-15',4],['1900-04-15',6],-47,'I1')
-        self.assertEqual(result,"Error US07 in line 6:Birth date is after death date with I1 id")
+        self.assertEqual(result,"Error US07 in line 4:Birth date is after death date with I1 id")
 
 if __name__=='__main__':
     unittest.main()
