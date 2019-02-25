@@ -339,7 +339,8 @@ class Gedcom():
         self.print_gedcom()
 
         #User Story 35
-        us_sp.us35_ppl_born_last_30days(self.ind, self.family)
+        us_sp.us35_ppl_born_last_30days(self,self.ind)
+        
 
     # Call your user story method here if it is related to search and validate
     def validate_all(self):
@@ -361,7 +362,9 @@ class Gedcom():
 
 
         # User Story 02
-        us_sp.us02_birth_before_marriage(self.ind, self.family)
+        us_sp.us02_birth_before_marriage(self,self.ind, self.family)
+        
+        
 
         
 

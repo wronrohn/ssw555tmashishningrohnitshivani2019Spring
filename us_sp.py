@@ -6,7 +6,7 @@ class us_sp:
     """
     Birth should occur before marriage of an individual
     """
-    def us02_birth_before_marriage(self,find, family):
+    def us02_birth_before_marriage(self,ind, family):
         for key, values in ind.items():
             if (values.__contains__("BIRT_DATE") and ind[key]["BIRT_DATE"] != "NA"):
                 if (values.__contains__("FAMS") and ind[key]["FAMS"] != "NA"):
@@ -26,6 +26,8 @@ class us_sp:
                                     print('Error US02: Birth date of', ind[key]["NAME"], '(', key ,') occurs after the marriage date.')
                                 break
 
+        
+
     def us02_birth_is_before_marriage(self,birth_date,marriage_date):
         if(birth_date == "NA" or marriage_date == "NA"):
             return True
@@ -44,7 +46,7 @@ class us_sp:
     """
     List all people in a GEDCOM file who were born in the last 30 days
     """
-    def us35_ppl_born_last_30days(self,ind, family):
+    def us35_ppl_born_last_30days(self,ind):
         last_30days_born_list =[]
         for key, values in ind.items():
             if (values.__contains__("BIRT_DATE") and ind[key]["BIRT_DATE"] != "NA"):
@@ -58,6 +60,7 @@ class us_sp:
         for records in last_30days_born_list:
             print("List of individuals born in the last 30days:  ")
             print(records)
+        
 
 
     def us35_ppl_born_last_30days_check(self,birth_date,present_date):
