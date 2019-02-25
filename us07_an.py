@@ -15,3 +15,4 @@ def parse_data_07(ind):
         answer=us_07(ind[x]['BIRT_DATE'],ind[x]['DEAT_DATE'],ind[x]['AGE'],x)
         if answer!=0:
             print(answer)
+    return 0

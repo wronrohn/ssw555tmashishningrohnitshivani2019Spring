@@ -16,5 +16,4 @@ def parse_data_04(family):
         answer=us_04(family[x]['MARR_DATE'],family[x]['DIV_DATE'],x)
         if answer!=0:
             print(answer)
-        else:
-            return 0
+    return 0
