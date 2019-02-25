@@ -366,9 +366,6 @@ class Gedcom():
         test_val_15 = us_rs.siblingCount(self.family)
         
        
-
-        
-
         # User Story 02
         us02_birth_before_marriage(self.ind, self.family)
 
