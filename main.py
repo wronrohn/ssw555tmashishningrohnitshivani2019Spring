@@ -4,8 +4,8 @@ from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
 from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
-from us02_sp import us02_birth_before_marriage
-from us35_sp import us35_ppl_born_last_30days
+from us_sp import us_sp
+
 import us04_an
 import us07_an
 # import US04
@@ -337,8 +337,9 @@ class Gedcom():
     # Call your user story method here if it is related to search and display
     def print_all(self):
         self.print_gedcom()
+
         #User Story 35
-        us35_ppl_born_last_30days(self.ind, self.family)
+        us_sp.us35_ppl_born_last_30days(self.ind, self.family)
 
     # Call your user story method here if it is related to search and validate
     def validate_all(self):
@@ -358,10 +359,9 @@ class Gedcom():
             print("Userstory 15 is Successful")
        
 
-        
 
         # User Story 02
-        #us02_birth_before_marriage(self.ind, self.family)
+        us_sp.us02_birth_before_marriage(self.ind, self.family)
 
         
 
