@@ -16,13 +16,16 @@ FILENAME="My-Family-27-Jan-2019-275.ged"
 error = []
 
 class Gedcom():
+    
     def __init__(self, filename):
         ged=open(filename,'r')
         a=ged.read()
         b=a.split("\n")
         #print(b)
         self.ind={}
+
         self.family={}
+        self.family_obj = {}
         matrix = self._preprocess_file(b)
         self._matrix_to_dict(matrix) 
 
@@ -53,7 +56,7 @@ class Gedcom():
                     else:
                         c.append([b[i][0],b[i][2:2+space],b[i][space+3:],i+1])
 
-        print(c)
+        # print(c)
 
         for i in range(0,len(c)):
             lineNumber += 1
@@ -131,7 +134,10 @@ class Gedcom():
 
         #print(finalize)
         return finalize
-    
+    def storeFam(self):
+        return self.family_obj
+    def storeInd(self):
+        return self.ind
     def _matrix_to_dict(self, finalize):
         check={'0':["HEAD","NOTE","TRLR","INDI","FAM"],
         '1':["NAME","SEX","BIRT","DEAT","FAMC","FAMS","MARR","HUSB","WIFE","CHIL","DIV",],
@@ -244,8 +250,11 @@ class Gedcom():
                 i=j
             else:
                 i=i+1
-        print(self.ind)
-        print(self.family)
+        #print(self.ind)
+        #print(self.family)
+    
+        self.family_obj = self.family
+        
 
     def print_gedcom(self):
         indi = PrettyTable()
@@ -346,6 +355,7 @@ class Gedcom():
         us01_date_b4_now(self.ind, self.family)
         # User Story 4 and 7
         us04_an.parse_data_04(self.family)
+
         us07_an.parse_data_07(self.ind)
         
         # User Story 42
