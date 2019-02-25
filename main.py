@@ -9,6 +9,7 @@ import us07_an
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="GEDCOM_Ashish.ged"
+error = []
 
 class Gedcom():
     def __init__(self, filename):
@@ -24,7 +25,7 @@ class Gedcom():
     def _preprocess_file(self, b):
         c=[]
         lineNumber = 0
-        error = []
+        
         finalize=[]
         check={'0':["HEAD","NOTE","TRLR","INDI","FAM"],
         '1':["NAME","SEX","BIRT","DEAT","FAMC","FAMS","MARR","HUSB","WIFE","CHIL","DIV",],
@@ -344,14 +345,11 @@ class Gedcom():
         # User Story 42
         us42_legit_date(self.ind, self.family)
         # User Story 15
-        try:
-            test_val_15 = us_rs.siblingCount(self.family)
-            if(test_val_15):
-                print("Userstory 15 is Successful")
-        except ValueError as err:
-            print(err)
-        except TypeError as err:
-            print(err)
+        
+        test_val_15 = us_rs.siblingCount(self.family)
+        if(test_val_15):
+            print("Userstory 15 is Successful")
+       
         # User Story 02
         #us02_birth_before_marriage(self.ind, self.family)
         
@@ -360,6 +358,7 @@ def main():
     gedcom = Gedcom("My-Family-27-Jan-2019-275.ged")
     gedcom.print_all()
     gedcom.validate_all()
+    
 
 if __name__ == '__main__':
     main()
