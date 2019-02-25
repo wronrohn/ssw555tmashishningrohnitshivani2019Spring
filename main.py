@@ -176,10 +176,10 @@ class Gedcom():
                     isLegitDate = us42_tsk01_is_legit_date(self.ind[finalize[i][2]]["DEAT_DATE"][0])
                     if(isLegitDate == True):
                         dea_date=datetime.datetime.strptime(self.ind[finalize[i][2]]["DEAT_DATE"][0],'%d %b %Y')
-                        self.ind[finalize[i][2]]["DEAT_DATE"]=[dea_date.strftime('%Y-%m-%d'),finalize[i][3]]
+                        self.ind[finalize[i][2]]["DEAT_DATE"]=[dea_date.strftime('%Y-%m-%d'),self.ind[finalize[i][2]]["DEAT_DATE"][1]]
                     else:
                         dea_date = "Invalid"
-                        self.ind[finalize[i][2]]["DEAT_DATE"]= "Invalid"
+                        self.ind[finalize[i][2]]["DEAT_DATE"]= ["Invalid",self.ind[finalize[i][2]]["DEAT_DATE"][1]]
                     self.ind[finalize[i][2]]["ALIVE"]="False"
 
                 if not("BIRT_DATE" in self.ind[finalize[i][2]]):
@@ -189,13 +189,13 @@ class Gedcom():
                     isLegitDate = us42_tsk01_is_legit_date(self.ind[finalize[i][2]]["BIRT_DATE"][0])
                     if(isLegitDate == True):
                         con_date=datetime.datetime.strptime(self.ind[finalize[i][2]]["BIRT_DATE"][0],'%d %b %Y')
-                        self.ind[finalize[i][2]]["BIRT_DATE"]=[con_date.strftime('%Y-%m-%d'),finalize[i][3]]
+                        self.ind[finalize[i][2]]["BIRT_DATE"]=[con_date.strftime('%Y-%m-%d'),self.ind[finalize[i][2]]["BIRT_DATE"][1]]
                         if (dea_date != "Invalid"):
                             self.ind[finalize[i][2]]["AGE"]=int(((dea_date)-(con_date)).days/365)
                         else:
                             self.ind[finalize[i][2]]["AGE"]="Invalid"
                     else:
-                        self.ind[finalize[i][2]]["BIRT_DATE"]="Invalid"
+                        self.ind[finalize[i][2]]["BIRT_DATE"]=["Invalid",self.ind[finalize[i][2]]["BIRT_DATE"][1]]
                         self.ind[finalize[i][2]]["AGE"]="Invalid"
                 
                 if not("FAMC" in self.ind[finalize[i][2]]):
@@ -235,18 +235,18 @@ class Gedcom():
                     isLegitDate = us42_tsk01_is_legit_date(self.family[finalize[i][2]]["MARR_DATE"][0])
                     if(isLegitDate == True):
                         con_date=datetime.datetime.strptime(self.family[finalize[i][2]]["MARR_DATE"][0],'%d %b %Y')
-                        self.family[finalize[i][2]]["MARR_DATE"]=[con_date.strftime('%Y-%m-%d'),finalize[i][3]]#ch
+                        self.family[finalize[i][2]]["MARR_DATE"]=[con_date.strftime('%Y-%m-%d'),self.family[finalize[i][2]]["MARR_DATE"][1]]#ch
                     else:
-                        self.family[finalize[i][2]]["MARR_DATE"]="Invalid"
+                        self.family[finalize[i][2]]["MARR_DATE"]=["Invalid",self.family[finalize[i][2]]["MARR_DATE"][1]]
                 if not("DIV_DATE" in self.family[finalize[i][2]]):
                     self.family[finalize[i][2]]["DIV_DATE"]="NA"
                 else:
                     isLegitDate = us42_tsk01_is_legit_date(self.family[finalize[i][2]]["DIV_DATE"][0])
                     if(isLegitDate == True):
                         con_date=datetime.datetime.strptime(self.family[finalize[i][2]]["DIV_DATE"][0],'%d %b %Y')
-                        self.family[finalize[i][2]]["DIV_DATE"]=[con_date.strftime('%Y-%m-%d'),finalize[i][3]]#ch
+                        self.family[finalize[i][2]]["DIV_DATE"]=[con_date.strftime('%Y-%m-%d'),self.family[finalize[i][2]]["DIV_DATE"][1]]#ch
                     else:
-                        self.family[finalize[i][2]]["DIV_DATE"]="Invalid"
+                        self.family[finalize[i][2]]["DIV_DATE"]=["Invalid",self.family[finalize[i][2]]["DIV_DATE"][1]]
                 i=j
             else:
                 i=i+1
