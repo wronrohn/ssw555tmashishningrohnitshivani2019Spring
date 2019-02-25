@@ -13,6 +13,7 @@ import us07_an
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="My-Family-27-Jan-2019-275.ged"
+# FILENAME = "GEDCOM_input.ged"
 error = []
 
 class Gedcom():
