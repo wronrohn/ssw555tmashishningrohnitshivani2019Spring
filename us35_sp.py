@@ -11,11 +11,11 @@ def us35_ppl_born_last_30days(ind):
             status = us35_ppl_born_last_30days_check(ind[key]["BIRT_DATE"][0],present_date)
             if status == True:
                 new_record = key+str(values)
-                print(new_record)
+                # print(new_record)
                 #    print(type(values))
                 last_30days_born_list.append(new_record)
     for records in last_30days_born_list:
-        print("List of individuals born in the last 30days:  ")
+        print("US35: List of individuals born in the last 30days:  ")
         print(records)
     
 
