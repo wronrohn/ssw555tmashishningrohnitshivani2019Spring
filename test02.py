@@ -1,5 +1,5 @@
 import unittest
-from us02_sp.py import us02_birth_is_before_marriage
+from us02_sp import us02_birth_is_before_marriage
 
 class TestProject(unittest.TestCase):
     
