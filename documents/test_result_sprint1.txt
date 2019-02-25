@@ -1,0 +1,39 @@
+Individuals
++-------+-------------------+--------+------------+---------+-------+------------+----------+------------------+
+|   ID  |        Name       | Gender |  Birthday  |   Age   | Alive |   Death    |  Child   |      Spouse      |
++-------+-------------------+--------+------------+---------+-------+------------+----------+------------------+
+|  @I1@ | Sherley /Johnson/ |   F    | 2019-02-25 | Invalid | False |  Invalid   | ['@F1@'] |        NA        |
+|  @I2@ |  Smith /Johnson/  |   M    | 1976-05-10 |   174   | False | 2150-06-10 | ['@F2@'] |     ['@F1@']     |
+|  @I3@ |  Christine /Clie/ |   F    | 1800-05-04 |   218   |  True |     NA     | ['@F3@'] |     ['@F1@']     |
+|  @I4@ |   Mathew /Clie/   |   M    | 1980-04-08 |    38   |  True |     NA     |   None   |     ['@F3@']     |
+|  @I5@ |   Mary /Nichole/  |   F    | 1958-03-13 |    60   |  True |     NA     |   None   |     ['@F3@']     |
+|  @I6@ |  David /Johnson/  |   M    | 1950-04-07 |    40   | False | 1990-12-20 |   None   |     ['@F2@']     |
+|  @I7@ |  Jenifer /Bridge/ |   F    | 1954-05-10 |    64   |  True |     NA     |   None   | ['@F2@', '@F4@'] |
+|  @I8@ |  Benjamin /Bing/  |   M    | 1949-10-12 |    69   |  True |     NA     |   None   |     ['@F4@']     |
+|  @I9@ |     Emy /Bing/    |   F    | 1998-05-11 |    20   |  True |     NA     | ['@F4@'] |        NA        |
+| @I10@ |   Edward /Bing/   |   M    | 2000-07-02 |    18   |  True |     NA     | ['@F4@'] |     ['@F5@']     |
+| @I11@ |   Mine /Ruthers/  |   F    | 2002-04-09 |    16   |  True |     NA     |   None   |     ['@F5@']     |
+| @I12@ |    Jerry /Bing/   |   M    | 2020-04-13 |    -1   |  True |     NA     | ['@F5@'] |        NA        |
++-------+-------------------+--------+------------+---------+-------+------------+----------+------------------+
+Family
++------+------------+------------+------------+-----------------+---------+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  ID  |  Married   |  Divorced  | Husband ID |   Husband Name  | Wife ID |    Wife Name     |                                                                                      Children                                                                                       |
++------+------------+------------+------------+-----------------+---------+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @F1@ | 1995-03-02 |     NA     |    @I2@    | Smith /Johnson/ |   @I3@  | Christine /Clie/ |                                                                                      ['@I1@']                                                                                       |
+| @F2@ | 1974-06-28 | 1972-03-28 |    @I6@    | David /Johnson/ |   @I7@  | Jenifer /Bridge/ |                                                                                      ['@I2@']                                                                                       |
+| @F4@ | 1996-03-09 | 1996-03-10 |    @I8@    | Benjamin /Bing/ |   @I7@  | Jenifer /Bridge/ |                                                                                 ['@I9@', '@I10@']                                                                                   |
+| @F3@ | 1976-03-07 |     NA     |    @I4@    |  Mathew /Clie/  |   @I5@  |  Mary /Nichole/  |                                                                                      ['@I3@']                                                                                       |
+| @F5@ | 2019-04-11 | 2020-06-18 |   @I10@    |  Edward /Bing/  |  @I11@  |  Mine /Ruthers/  | ['@I12@', '@I13@', '@I14@', '@I15@', '@I16@', '@I17@', '@I18@', '@I19@', '@I20@', '@I21@', '@I22@', '@I23@', '@I24@', '@I25@', '@I26@', '@I27@', '@I28@', '@I29@', '@I30@', '@I31@'] |
++------+------------+------------+------------+-----------------+---------+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+US35: List of individuals born in the last 30days:
+@I1@{'NAME': ['Sherley /Johnson/', 17], 'SEX': ['F', 21], 'BIRT_DATE': ['2019-02-25', 23], 'DEAT_DATE': ['Invalid', 25], 'FAMC': [['@F1@', 26]], 'ALIVE': 'False', 'AGE': 'Invalid', 'FAMS': 'NA'}
+Error US01 in line 36 : Death date of Smith /Johnson/ ( @I2@ ) occurs after current date.
+Error US01 in line 132 : Birth date of Jerry /Bing/ ( @I12@ ) occurs after current date.
+Error US01 in line 197 : Marriage date of  Edward /Bing/ ( @I10@ ) and Mine /Ruthers/ ( @I11@ ) in Family ( @F5@ ) occurs after current date.
+Error US01 in line 200 : Divorce date of  Edward /Bing/ ( @I10@ ) and Mine /Ruthers/ ( @I11@ ) in Family ( @F5@ ) occurs after current date.
+Error US04 in line 149 or line 147:Marriage date occurs after Divorce date in @F2@ family
+Error US07 in line 34 or line 36:Age of person is 150 years with @I2@ id
+Error US07 in line 46:Age of person is 150 years with @I3@ id
+Error US42 in line 25 : Death date of ['Sherley /Johnson/', 17] ( @I1@ ) is illegitimate.
+ERROR US15 in line 176 : There are more than 15 siblings for family.
+Error US02 in line 56 : Birth date of Mathew /Clie/ ( @I4@ ) occurs after the marriage date.
