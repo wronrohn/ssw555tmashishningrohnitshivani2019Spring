@@ -4,11 +4,16 @@ from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
 from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
+from us02_sp import us02_birth_before_marriage
+from us35_sp import us35_ppl_born_last_30days
 import us04_an
 import us07_an
+# import US04
+# import US07
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
-FILENAME="GEDCOM_input.ged"
+FILENAME="My-Family-27-Jan-2019-275.ged"
+error = []
 
 class Gedcom():
     def __init__(self, filename):
@@ -24,7 +29,7 @@ class Gedcom():
     def _preprocess_file(self, b):
         c=[]
         lineNumber = 0
-        error = []
+        
         finalize=[]
         check={'0':["HEAD","NOTE","TRLR","INDI","FAM"],
         '1':["NAME","SEX","BIRT","DEAT","FAMC","FAMS","MARR","HUSB","WIFE","CHIL","DIV",],
@@ -332,11 +337,13 @@ class Gedcom():
     # Call your user story method here if it is related to search and display
     def print_all(self):
         self.print_gedcom()
+        #User Story 35
+        us35_ppl_born_last_30days(self.ind)
 
     # Call your user story method here if it is related to search and validate
     def validate_all(self):
         # User Story 01
-        #us01_date_b4_now(self.ind, self.family)
+        us01_date_b4_now(self.ind, self.family)
         # User Story 4 and 7
         us04_an.parse_data_04(self.family)
         us07_an.parse_data_07(self.ind)
@@ -344,22 +351,25 @@ class Gedcom():
         # User Story 42
         us42_legit_date(self.ind, self.family)
         # User Story 15
-        try:
-            test_val_15 = us_rs.siblingCount(self.family)
-            if(test_val_15):
-                print("Userstory 15 is Successful")
-        except ValueError as err:
-            print(err)
-        except TypeError as err:
-            print(err)
+
+        
+        test_val_15 = us_rs.siblingCount(self.family)
+        if(test_val_15):
+            print("Userstory 15 is Successful")
+       
+
+        
+
         # User Story 02
-        #us02_birth_before_marriage(self.ind, self.family)
+        us02_birth_before_marriage(self.ind, self.family)
+
         
 
 def main():
-    gedcom = Gedcom("My-Family-27-Jan-2019-275.ged")
+    gedcom = Gedcom(FILENAME)
     gedcom.print_all()
     gedcom.validate_all()
+    
 
 if __name__ == '__main__':
     main()
