@@ -364,8 +364,7 @@ class Gedcom():
 
         
         test_val_15 = us_rs.siblingCount(self.family)
-        if(test_val_15):
-            print("Userstory 15 is Successful")
+        
        
 
         
