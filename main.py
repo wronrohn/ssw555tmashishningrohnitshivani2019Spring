@@ -12,7 +12,7 @@ import us07_an
 # import US07
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
-FILENAME="GEDCOM_Ashish.ged"
+FILENAME="My-Family-27-Jan-2019-275.ged"
 error = []
 
 class Gedcom():
@@ -345,7 +345,7 @@ class Gedcom():
     # Call your user story method here if it is related to search and validate
     def validate_all(self):
         # User Story 01
-        #us01_date_b4_now(self.ind, self.family)
+        us01_date_b4_now(self.ind, self.family)
         # User Story 4 and 7
         us04_an.parse_data_04(self.family)
         us07_an.parse_data_07(self.ind)
@@ -369,7 +369,7 @@ class Gedcom():
         
 
 def main():
-    gedcom = Gedcom("My-Family-27-Jan-2019-275.ged")
+    gedcom = Gedcom(FILENAME)
     gedcom.print_all()
     gedcom.validate_all()
     
