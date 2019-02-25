@@ -251,8 +251,8 @@ class Gedcom():
                 i=j
             else:
                 i=i+1
-        print(self.ind)
-        print(self.family)
+        #print(self.ind)
+        #print(self.family)
     
         self.family_obj = self.family
         
