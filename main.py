@@ -13,7 +13,7 @@ import us07_an
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
 FILENAME="My-Family-27-Jan-2019-275.ged"
-# FILENAME = "GEDCOM_input.ged"
+#FILENAME = "GEDCOM_input.ged"
 error = []
 
 class Gedcom():
@@ -251,8 +251,8 @@ class Gedcom():
                 i=j
             else:
                 i=i+1
-        #print(self.ind)
-        #print(self.family)
+        print(self.ind)
+        print(self.family)
     
         self.family_obj = self.family
         
@@ -292,11 +292,25 @@ class Gedcom():
             else:
                 arr.append("NA")
             if values.__contains__("FAMC"):
-                arr.append (self.ind[key]["FAMC"])
+                if self.ind[key]["FAMC"]!="None":
+                    famc_list=[]
+                    for i in range(0,len(self.ind[key]["FAMC"])):
+                        famc_list.append(self.ind[key]["FAMC"][i][0])
+                    #print(famc_list)
+                    arr.append(famc_list)
+                else:
+                    arr.append(self.ind[key]["FAMC"])
             else:
                 arr.append("NA")
             if values.__contains__("FAMS"):
-                arr.append (self.ind[key]["FAMS"])
+                if self.ind[key]["FAMS"]!="NA":
+                    fams_list=[]
+                    for i in range(0,len(self.ind[key]["FAMS"])):
+                        fams_list.append(self.ind[key]["FAMS"][i][0])
+                    #print(fams_list)
+                    arr.append(fams_list)
+                else:
+                    arr.append(self.ind[key]["FAMS"])
             else:
                 arr.append("NA")
             
@@ -318,7 +332,7 @@ class Gedcom():
             if values.__contains__("HUSB"):
                 arr.append (self.family[key]["HUSB"][0])
                 husID = self.family[key]["HUSB"][0]
-                arr.append(self.ind[husID]["NAME"])
+                arr.append(self.ind[husID]["NAME"][0])
             else:
                 arr.append("NA")
                 arr.append("NA")
@@ -326,13 +340,17 @@ class Gedcom():
             if values.__contains__("WIFE"):
                 arr.append (self.family[key]["WIFE"][0])
                 wifeID = self.family[key]["WIFE"][0]
-                arr.append(self.ind[wifeID]["NAME"])
+                arr.append(self.ind[wifeID]["NAME"][0])
             else:
                 arr.append("NA")
                 arr.append("NA")
             
             if values.__contains__("CHIL"):
-                arr.append (self.family[key]["CHIL"])
+                chil_list=[]
+                for i in range(0,len(self.family[key]["CHIL"])):
+                    chil_list.append(self.family[key]["CHIL"][i][0])
+                    #print(fams_list)
+                arr.append(chil_list)
             else:
                 arr.append("NA")
             fam.add_row(arr)
