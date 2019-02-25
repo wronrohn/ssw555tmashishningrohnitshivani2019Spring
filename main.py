@@ -4,15 +4,15 @@ from prettytable import PrettyTable
 from us01_ny import us01_date_b4_now
 from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
-from us_sp import us_sp
-
+from us02_sp import us02_birth_before_marriage
+from us35_sp import us35_ppl_born_last_30days
 import us04_an
 import us07_an
 # import US04
 # import US07
 # !To developers: please call all your user story methods in either print_all() or 
 # validate_all() as the name implies
-FILENAME="My-Family-27-Jan-2019-275.ged"
+FILENAME="GEDCOM_Ashish.ged"
 error = []
 
 class Gedcom():
@@ -337,15 +337,13 @@ class Gedcom():
     # Call your user story method here if it is related to search and display
     def print_all(self):
         self.print_gedcom()
-
         #User Story 35
-        us_sp.us35_ppl_born_last_30days(self,self.ind)
-        
+        us35_ppl_born_last_30days(self.ind)
 
     # Call your user story method here if it is related to search and validate
     def validate_all(self):
         # User Story 01
-        us01_date_b4_now(self.ind, self.family)
+        #us01_date_b4_now(self.ind, self.family)
         # User Story 4 and 7
         us04_an.parse_data_04(self.family)
         us07_an.parse_data_07(self.ind)
@@ -360,16 +358,15 @@ class Gedcom():
             print("Userstory 15 is Successful")
        
 
+        
 
         # User Story 02
-        us_sp.us02_birth_before_marriage(self,self.ind, self.family)
-        
-        
+        us02_birth_before_marriage(self.ind, self.family)
 
         
 
 def main():
-    gedcom = Gedcom(FILENAME)
+    gedcom = Gedcom("My-Family-27-Jan-2019-275.ged")
     gedcom.print_all()
     gedcom.validate_all()
     
