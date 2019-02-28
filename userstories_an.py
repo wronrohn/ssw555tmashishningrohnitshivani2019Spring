@@ -21,6 +21,19 @@ class userstory_an():
         else:
             return 0
     
+    def us_21(a,b,i,j,k):
+        temp=[]
+        if a[0]=='M'or a[0]=='NA':
+            temp.append(0)
+        else:
+            temp.append("Error US21 in line "+ str(a[1]) +":Gender of husband with "+str(j)+ " id is not male in "+ str(i)+" family")
+        if b[0]=='F' or b[0]=='NA':
+            temp.append(0)
+        else:
+            temp.append("Error US21 in line "+ str(b[1]) +":Gender of wife with "+str(k)+ " id is not female in "+ str(i)+" family")
+        return temp
+
+    
     def parse_data_04(family):
         for x in family:
             answer=userstory_an.us_04(family[x]['MARR_DATE'],family[x]['DIV_DATE'],x)
@@ -33,4 +46,27 @@ class userstory_an():
             answer=userstory_an.us_07(ind[x]['BIRT_DATE'],ind[x]['DEAT_DATE'],ind[x]['AGE'],x)
             if answer!=0:
                 print(answer)
+        return 0
+
+    def parse_data_21(ind,family):
+        for x in family:
+            if ('HUSB' in family[x]) and (family[x]['HUSB'][0] in ind) and ('SEX' in ind[family[x]['HUSB'][0]]):
+                a=ind[family[x]['HUSB'][0]]['SEX']
+                c=family[x]['HUSB'][0]
+                
+            else:
+                a=['NA',-1]
+                c='NA'
+            
+            if ('WIFE' in family[x]) and (family[x]['WIFE'][0] in ind) and ('SEX' in ind[family[x]['WIFE'][0]]):
+                b=ind[family[x]['WIFE'][0]]['SEX']
+                d=family[x]['WIFE'][0]
+                
+            else:
+                b=['NA',-1]
+                d='NA'
+            answer=userstory_an.us_21(a,b,x,family[x]['HUSB'][0],family[x]['WIFE'][0])
+            for i in answer:
+                if i!=0:
+                    print(i)
         return 0

@@ -18,7 +18,7 @@
 2 GIVN Sherley
 2 SURN Johnson
 2 _MARNM Johnson
-1 SEX F
+1 SEX M
 1 BIRT
 2 DATE 25 FEB 2019
 1 DEAT
@@ -29,7 +29,7 @@
 2 GIVN Smith
 2 SURN Johnson
 2 _MARNM Johnson
-1 SEX M
+1 SEX F
 1 BIRT
 2 DATE 10 MAY 1976
 1 DEAT
@@ -60,7 +60,7 @@
 2 GIVN Mary
 2 SURN Nichole
 2 _MARNM Clie
-1 SEX F
+1 SEX M
 1 BIRT
 2 DATE 13 MAR 1958
 1 FAMS @F3@

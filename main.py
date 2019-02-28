@@ -252,8 +252,8 @@ class Gedcom():
                 i=j
             else:
                 i=i+1
-        #print(self.ind)
-        #print(self.family)
+        print(self.ind)
+        print(self.family)
     
         self.family_obj = self.family
         
@@ -377,7 +377,9 @@ class Gedcom():
         #print(self.ind)
         userstory_an.parse_data_04(self.family)
         userstory_an.parse_data_07(self.ind)
-        
+        #User Story 21
+        userstory_an.parse_data_21(self.ind,self.family)
+
         # User Story 42
         us42_legit_date(self.ind, self.family)
         # User Story 15
