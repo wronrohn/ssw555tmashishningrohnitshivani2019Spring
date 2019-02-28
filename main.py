@@ -6,8 +6,9 @@ from us_rs import us_rs
 from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
 from us02_sp import us02_birth_before_marriage
 from us35_sp import us35_ppl_born_last_30days
-import us04_an
-import us07_an
+from userstories_an import *
+#import us04_an
+#import us07_an
 # import US04
 # import US07
 # !To developers: please call all your user story methods in either print_all() or 
@@ -373,9 +374,9 @@ class Gedcom():
         # User Story 01
         us01_date_b4_now(self.ind, self.family)
         # User Story 4 and 7
-        us04_an.parse_data_04(self.family)
-
-        us07_an.parse_data_07(self.ind)
+        #print(self.ind)
+        userstory_an.parse_data_04(self.family)
+        userstory_an.parse_data_07(self.ind)
         
         # User Story 42
         us42_legit_date(self.ind, self.family)
