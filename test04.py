@@ -3,7 +3,7 @@ from userstories_an import *
 
 class testcase(unittest.TestCase):
 
-    def test_mbd(self):
+    def test_04(self):
         result=userstory_an.us_04(['1994-06-12',4],['1994-04-03',6],'F1')
         self.assertEqual(result,"Error US04 in line 6 or line 4:Marriage date occurs after Divorce date in F1 family")
 
