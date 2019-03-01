@@ -33,6 +33,19 @@ class userstory_an():
             temp.append("Error US21 in line "+ str(b[1]) +":Gender of wife with "+str(k)+ " id is not female in "+ str(i)+" family")
         return temp
 
+    def us_33(hus,wif,chil_age,chil):
+        if hus!='NA'and wif!='NA':
+            if hus[0]!='Invalid' and wif[0]!='Invalid':
+                if chil_age!='NA' and chil_age!='Invalid' and chil_age<18:
+                    return chil
+                else:
+                    return 0
+            else:
+                return 0
+        else:
+            return 0
+
+
     
     def parse_data_04(family):
         for x in family:
@@ -70,3 +83,14 @@ class userstory_an():
                 if i!=0:
                     print(i)
         return 0
+
+    def parse_data_33(ind,family):
+        orphan_chil=[]
+        for x in family:
+            if ('HUSB' in family[x]) and ('WIFE' in family[x]) and ('CHIL' in family[x]) and (family[x]['HUSB'][0] in ind) and (family[x]['WIFE'][0] in ind):
+                for y in family[x]['CHIL']:
+                    if (y[0] in ind):
+                        answer=userstory_an.us_33(ind[family[x]['HUSB'][0]]['DEAT_DATE'],ind[family[x]['WIFE'][0]]['DEAT_DATE'],ind[y[0]]['AGE'],y[0])
+                        if answer!=0:
+                            orphan_chil.append(answer)
+        print("List of id's of orpan children is: "+ str(orphan_chil))

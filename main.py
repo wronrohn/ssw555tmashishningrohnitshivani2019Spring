@@ -377,8 +377,9 @@ class Gedcom():
         #print(self.ind)
         userstory_an.parse_data_04(self.family)
         userstory_an.parse_data_07(self.ind)
-        #User Story 21
+        #User Story 21 and 33
         userstory_an.parse_data_21(self.ind,self.family)
+        userstory_an.parse_data_33(self.ind,self.family)
 
         # User Story 42
         us42_legit_date(self.ind, self.family)
