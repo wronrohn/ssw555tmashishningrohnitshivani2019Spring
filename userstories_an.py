@@ -45,8 +45,6 @@ class userstory_an():
         else:
             return 0
 
-
-    
     def parse_data_04(family):
         for x in family:
             answer=userstory_an.us_04(family[x]['MARR_DATE'],family[x]['DIV_DATE'],x)
@@ -78,7 +76,7 @@ class userstory_an():
             else:
                 b=['NA',-1]
                 d='NA'
-            answer=userstory_an.us_21(a,b,x,family[x]['HUSB'][0],family[x]['WIFE'][0])
+            answer=userstory_an.us_21(a,b,x,c,d)
             for i in answer:
                 if i!=0:
                     print(i)

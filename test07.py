@@ -3,7 +3,7 @@ from userstories_an import *
 
 class testcase(unittest.TestCase):
 
-    def test_mbd(self):
+    def test_07(self):
         result=userstory_an.us_07(['1996-10-21',4],['2150-10-21',6],154,'I1')
         self.assertEqual(result,"Error US07 in line 4 or line 6:Age of person is 150 years with I1 id")
 
