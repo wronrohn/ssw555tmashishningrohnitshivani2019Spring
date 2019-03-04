@@ -7,6 +7,7 @@ from us42_ny import us42_legit_date, us42_tsk01_is_legit_date
 from us02_sp import us02_birth_before_marriage
 from us35_sp import us35_ppl_born_last_30days
 from userstories_an import *
+from us10_ny import us10_marriage_after_14
 #import us04_an
 #import us07_an
 # import US04
@@ -380,18 +381,14 @@ class Gedcom():
         #User Story 21 and 33
         userstory_an.parse_data_21(self.ind,self.family)
         userstory_an.parse_data_33(self.ind,self.family)
-
         # User Story 42
         us42_legit_date(self.ind, self.family)
-        # User Story 15
-
-        
-        test_val_15 = us_rs.siblingCount(self.family)
-        
-       
+        # User Story 15        
+        test_val_15 = us_rs.siblingCount(self.family)              
         # User Story 02
         us02_birth_before_marriage(self.ind, self.family)
-
+        # User Story 10
+        us10_marriage_after_14(self.ind, self.family)
         
 
 def main():
