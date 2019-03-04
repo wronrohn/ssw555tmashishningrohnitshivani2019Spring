@@ -8,6 +8,7 @@ from us02_sp import us02_birth_before_marriage
 from us35_sp import us35_ppl_born_last_30days
 from userstories_an import *
 from us10_ny import us10_marriage_after_14
+from us34_ny import us34_list_big_age_diff
 #import us04_an
 #import us07_an
 # import US04
@@ -371,6 +372,8 @@ class Gedcom():
         us35_ppl_born_last_30days(self.ind)
         #User Story 33
         userstory_an.parse_data_33(self.ind,self.family)
+        # User Story 34
+        us34_list_big_age_diff(self.ind,self.family)
 
     # Call your user story method here if it is related to search and validate
     def validate_all(self):
