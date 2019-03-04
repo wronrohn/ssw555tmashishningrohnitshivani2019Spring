@@ -2,7 +2,7 @@ import unittest
 from us10_ny import us10_tsk01_is_child_marriage
 
 class TestProject(unittest.TestCase):
-    def test_us10_tsk01_is_dom_after_dob_14_yrs(self):
+    def test_us10_tsk01_is_child_marriage(self):
         # sequence: date of marriage, husband date of birth, wife date of birth
         # Non-parseable input are considered as false
         self.assertFalse(us10_tsk01_is_child_marriage("NA", "NA", "NA"))
