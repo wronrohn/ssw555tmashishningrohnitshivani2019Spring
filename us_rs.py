@@ -16,7 +16,6 @@ class us_rs:
                 length = 0
             if length > 15:
                 validity = False
-                
                 print("ERROR US15 in line " + str(values['CHIL'][0][1]) + " : There are more than 15 siblings for family. " )
                 return validity
 
