@@ -41,7 +41,7 @@ class us_rs:
             wifeDeath = individual[wife]['DEAT_DATE']
               
             if(husbandDeath[0] < divorceDate):
-                error.append(husbandDeath[1])
+                error.append(str(husbandDeath[1]))
                 flag = False
             
             print(wife)
@@ -52,7 +52,7 @@ class us_rs:
                 flag = False
         if(len(error)>0):
             for err in error:
-                print("ERROR US_06: Check the Death Day at line number " + err + ". Divorce Date is after the death Day" )
+                print("ERROR US_06: Check the Death Day at line number " + err + ". Divorce Date is after the death Day." )
         return flag
                 
 
