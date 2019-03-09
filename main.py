@@ -393,6 +393,9 @@ class Gedcom():
         us02_birth_before_marriage(self.ind, self.family)
         # User Story 10
         us10_marriage_after_14(self.ind, self.family)
+
+        print("###################################")
+        us_rs.divorceBeforeDeath(self.ind, self.family)
         
 
 def main():
