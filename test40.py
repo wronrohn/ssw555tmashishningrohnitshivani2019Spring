@@ -1,7 +1,7 @@
 import unittest
 from us_rs import us_rs 
 from main import Gedcom
-from us04_an import parse_data_04
+
 
 class TestCase(unittest.TestCase):
     
