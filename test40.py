@@ -14,7 +14,7 @@ class TestCase(unittest.TestCase):
     
     def test_checkLineNumber(self):
         
-        self.assertFalse(us_rs.siblingCount(self.fam))
+        self.assertTrue(us_rs.divorceBeforeDeath(self.ind, self.fam))
 
 if __name__ == "__main__":
     unittest.main()
