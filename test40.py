@@ -6,7 +6,7 @@ from main import Gedcom
 class TestCase(unittest.TestCase):
     
     
-    gedcom = Gedcom("GEDCOM_input.ged")
+    gedcom = Gedcom("My-Family-27-Jan-2019-275.ged")
     fam = gedcom.storeFam()
     ind = gedcom.storeInd()
 
