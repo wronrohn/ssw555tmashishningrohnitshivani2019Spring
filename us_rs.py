@@ -43,8 +43,8 @@ class us_rs:
                 error.append(str(husbandDeath[1]))
                 flag = False
             
-            print(wife)
-            print(wifeDeath)
+            
+            
             if(wifeDeath[0] < divorceDate):
                 error.append(str(wifeDeath[1]))
                 print(error)
