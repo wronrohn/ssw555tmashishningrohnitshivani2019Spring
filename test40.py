@@ -13,7 +13,7 @@ class TestCase(unittest.TestCase):
     
     
     def test_checkLineNumber(self):
-        self.assertEqual(parse_data_04(self.fam), 0)
+        
         self.assertFalse(us_rs.siblingCount(self.fam))
 
 if __name__ == "__main__":
